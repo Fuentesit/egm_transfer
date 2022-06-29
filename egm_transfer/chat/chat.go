@@ -1,7 +1,7 @@
 package chat
 
 import (
-	"log"
+	//"log"
 
 	"golang.org/x/net/context"
 )
