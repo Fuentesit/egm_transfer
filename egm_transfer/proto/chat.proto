@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "./chat";
+
+message Lat {
+    sint32 lat = 1;
+}
+
+message Lon {
+    sint32 lon = 1;
+}
+
+message N {
+    sint32 n = 1;
+}
+
+message EGM {
+    map<sint64, Lat> lats =1;
+    map<sint64, Lon> lons =2;
+    map<sint64, N> Ns =3;
+}
+
+message EGM_NAT {
+    EGM EGM_NAT =1;
+}
+
+service ChatService {
+    rpc tradEGM(EGM_NAT) returns (EGM) {}
+}
+
